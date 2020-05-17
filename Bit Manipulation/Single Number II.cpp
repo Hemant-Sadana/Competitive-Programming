@@ -1,17 +1,14 @@
 int Solution::singleNumber(const vector<int> &A) {
-    int n = A.size(),ans = 0;
-    vector<int> ones(32,0);
-    for(int i=0;i<n;i++)
-    {
-        for(int j=0;j<32;j++)
-        {
-            if(A[i] & (1<<j))
-            ones[j]++;
-        }
-    }
+    int n = A.size(),ans = 0,ones = 0;;
     for(int i=0;i<32;i++)
     {
-        if(ones[i]%3)
+        ones = 0;
+        for(int j=0;j<n;j++)
+        {
+            if(A[j] & (1<<i))
+            ones++;
+        }
+        if(ones%3)
         ans = ans + (1<<i);
     }
     return ans;
