@@ -9,7 +9,7 @@ int Solution::solve(const vector<int> &A) {
     {
         for(int j=sum;j>=A[i];j--)
         {
-            if(j-A[i]>=0 && dp[j-A[i]]!=INT_MAX)
+            if(dp[j-A[i]]!=INT_MAX)
             dp[j] = min(dp[j],dp[j-A[i]]+1);
             
         }
